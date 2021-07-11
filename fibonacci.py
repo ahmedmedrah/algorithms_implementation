@@ -14,10 +14,20 @@ fib_itr(100)
 
 ## recursive method
 def fib_rec(n):
-    if n == 1:
+    if n == 1 or n == 0:
         return 1
-    elif n == 0:
-        return 0
     else:
         return fib_rec(n-2) + fib_rec(n-1)
-fib_rec(100)
+fib_rec(10)
+
+
+
+## dynamic method
+mem = {0:1,1:1}
+def fib_dy(n):
+    if n not in mem:
+        mem[n] = fib_dy(n-2) + fib_dy(n-1)
+        return mem[n]
+    else:
+        return mem[n]
+fib_dy(10)            
